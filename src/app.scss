@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap');
+
+$GrayishBlue: hsl(237, 18%, 59%);
+$SoftRed: hsl(345, 95%, 68%);
+$White: hsl(0, 0%, 100%);
+$DarkDesaturatedBlue: hsl(236, 21%, 26%);
+$VeryDarkBlue: hsl(235, 16%, 14%);
+$VeryDarkBlueMostlyBlack: hsl(234, 17%, 12%);
+//
+$bg: rgba(32, 30, 43, 255);
+$topCard: rgba(44, 44, 68, 255);
+$bottomCard: rgba(52, 54, 79, 255);
+$topNumber: rgba(215, 80, 115, 255);
+$bottomNumber: rgba(250, 94, 134, 255);
+
+.app-background {
+  height: 100vh;
+  background-color: $VeryDarkBlue;
+  font-family: "Red Hat Text", sans-serif;
+  display: flex;
+  flex-direction: column;
+
+  .bg-stars {
+    flex-grow: 1;
+    height: 75vh;
+    background-image: url("./assets/bg-stars.svg");
+    background-position: center bottom;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+
+    .main-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      height: 100%;
+      overflow: auto;
+
+      .title {
+        text-align: center;
+        letter-spacing: 8px;
+        color: $White;
+        line-height: 1.5;
+        font-size: 21px;
+      }
+
+      .timer {
+        width: 50%;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-gap: 4%;
+
+
+        .time-card-container {
+          .time-card {
+            aspect-ratio: 10/9;
+            font-size: 85px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            margin-bottom: 6%;
+
+            .top, .bottom {
+              flex: 1;
+              display: flex;
+              justify-content: center;
+              align-items: end;
+              line-height: 0;
+            }
+
+            .top {
+              border-top-left-radius: 10px;
+              border-top-right-radius: 10px;
+              align-items: end;
+              background-color: $topCard;
+              color: $topNumber;
+              --mask: radial-gradient(8px at 8px 100%,#0000 98%,#000) -8px;
+              -webkit-mask: var(--mask);
+              mask: var(--mask);
+            }
+
+            .bottom {
+              border-bottom-left-radius: 10px;
+              border-bottom-right-radius: 10px;
+              align-items: start;
+              background-color: $bottomCard;
+              color: $bottomNumber;
+              --mask: radial-gradient(8px at 8px 0,#0000 98%,#000) -8px;
+              -webkit-mask: var(--mask);
+              mask: var(--mask);
+            }
+
+            &:before {
+              position: absolute;
+              content: "";
+              border-radius: 20px 20px 8% 8%;
+              background-color: $VeryDarkBlueMostlyBlack;
+              height: 106%;
+              width: 100%;
+            }
+
+            &:after {
+              content: "";
+              background-color: $VeryDarkBlueMostlyBlack;
+              height: 1px;
+              width: 100%;
+              position: absolute;
+              top: 50%;
+            }
+          }
+
+          .subtitle {
+            font-size: 14px;
+            margin-top: 15%;
+            color: $GrayishBlue;
+            letter-spacing: 7px;
+            text-align: center;
+          }
+        }
+
+      }
+    }
+  }
+
+  .pattern-hills {
+    flex-grow: 1;
+    flex-basis: 25%;
+    background-image: url("./assets/pattern-hills.svg");
+    background-position: 83% top;
+    background-size: cover;
+  }
+}
