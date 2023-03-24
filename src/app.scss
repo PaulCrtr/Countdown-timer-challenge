@@ -60,18 +60,28 @@ $topNumber: rgba(215, 80, 115, 255);
             margin-bottom: 7%;
             user-select: none;
 
-            .top, .bottom {
+            .top-container, .bottom-container {
               flex: 1;
               display: flex;
               justify-content: center;
               align-items: end;
+              position: relative;
+            }
+
+            .top, .bottom {
+              position: absolute;
+              height: 100%;
+              width: 100%;
+              display: flex;
+              justify-content: center;
               line-height: 0;
             }
 
             .top {
+              align-items: end;
+              transform-origin: bottom;
               border-top-left-radius: 5px;
               border-top-right-radius: 5px;
-              align-items: end;
               background-color: $topCard;
               color: $topNumber;
               --mask: radial-gradient(4px at 4px 100%,#0000 98%,#000) -4px;
@@ -80,9 +90,10 @@ $topNumber: rgba(215, 80, 115, 255);
             }
 
             .bottom {
+              align-items: start;
+              transform-origin: top;
               border-bottom-left-radius: 5px;
               border-bottom-right-radius: 5px;
-              align-items: start;
               background-color: $DarkDesaturatedBlue;
               color: $SoftRed;
               --mask: radial-gradient(4px at 4px 0,#0000 98%,#000) -4px;
@@ -106,6 +117,26 @@ $topNumber: rgba(215, 80, 115, 255);
               width: 100%;
               position: absolute;
               top: 50%;
+            }
+
+            .top-anim {
+              animation: dropPaperTop 500ms 1;
+            }
+
+            .bottom-anim {
+              animation: dropPaperBottom 500ms 1;
+              animation-delay: 500ms;
+            }
+
+            @keyframes dropPaperTop {
+              100% {
+                transform: scaleY(0);
+              }
+            }
+            @keyframes dropPaperBottom {
+              0% {
+                transform: scaleY(0);
+              }
             }
           }
 
