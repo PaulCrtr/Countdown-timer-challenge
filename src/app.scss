@@ -18,7 +18,7 @@ $topNumber: rgba(215, 80, 115, 255);
 
   .bg-stars {
     flex-grow: 1;
-    height: 75vh;
+    flex-basis: 75%;
     background-image: url("./assets/bg-stars.svg");
     background-position: center bottom;
     background-size: cover;
@@ -31,6 +31,7 @@ $topNumber: rgba(215, 80, 115, 255);
       justify-content: space-evenly;
       align-items: center;
       height: 100%;
+      padding: 60px 40px 60px 40px;
 
       .title {
         text-align: center;
@@ -39,10 +40,11 @@ $topNumber: rgba(215, 80, 115, 255);
         color: $White;
         line-height: 1.5;
         font-size: 17px;
+        min-width: 330px;
       }
 
       .timer {
-        width: 90%;
+        width: 330px;
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
         grid-gap: 4%;
@@ -108,7 +110,7 @@ $topNumber: rgba(215, 80, 115, 255);
           }
 
           .subtitle {
-            font-size: 8px;
+            font-size: 7px;
             margin-top: 20%;
             color: $GrayishBlue;
             letter-spacing: 4px;
@@ -132,8 +134,8 @@ $topNumber: rgba(215, 80, 115, 255);
     align-items: center;
 
     .networks {
-      margin-top: 18%;
-      width: 37%;
+      margin-top: 70px;
+      width: 140px;
       display: flex;
       justify-content: space-between;
 
@@ -145,5 +147,53 @@ $topNumber: rgba(215, 80, 115, 255);
         cursor: pointer;
       }
     }
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .app-background .bg-stars .main-container .timer {
+    width: 550px;
+  }
+  .app-background .bg-stars .main-container .timer .time-card-container .time-card {
+    font-size: 65px;
+  }
+  .app-background .bg-stars .main-container .timer .time-card-container .subtitle {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .app-background .bg-stars .main-container .timer {
+    width: 740px;
+  }
+  .app-background .bg-stars .main-container .timer .time-card-container .time-card {
+    font-size: 88px;
+  }
+  .app-background .bg-stars .main-container .timer .time-card-container .subtitle {
+    margin-top: 18%;
+    font-size: 13px;
+    letter-spacing: 7px;
+    text-indent: 7px;
+  }
+  .app-background .bg-stars .main-container .title {
+    font-size: 21px;
+    letter-spacing: 9px;
+    text-indent: 9px;
+  }
+  .app-background .bg-stars .main-container {
+    padding: 35px 40px 35px 40px;
+  }
+  .app-background .pattern-hills .networks {
+    margin-top: 50px;
+  }
+  .app-background .bg-stars .main-container .timer .time-card-container .time-card .top {
+    --mask: radial-gradient(7px at 7px 100%,#0000 98%,#000) -7px;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
+  }
+  .app-background .bg-stars .main-container .timer .time-card-container .time-card .bottom {
+    --mask: radial-gradient(7px at 7px 0,#0000 98%,#000) -7px;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
   }
 }
