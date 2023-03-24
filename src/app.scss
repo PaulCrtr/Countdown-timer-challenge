@@ -6,12 +6,8 @@ $White: hsl(0, 0%, 100%);
 $DarkDesaturatedBlue: hsl(236, 21%, 26%);
 $VeryDarkBlue: hsl(235, 16%, 14%);
 $VeryDarkBlueMostlyBlack: hsl(234, 17%, 12%);
-//
-$bg: rgba(32, 30, 43, 255);
 $topCard: rgba(44, 44, 68, 255);
-$bottomCard: rgba(52, 54, 79, 255);
 $topNumber: rgba(215, 80, 115, 255);
-$bottomNumber: rgba(250, 94, 134, 255);
 
 .app-background {
   height: 100vh;
@@ -35,7 +31,6 @@ $bottomNumber: rgba(250, 94, 134, 255);
       justify-content: space-evenly;
       align-items: center;
       height: 100%;
-      overflow: auto;
 
       .title {
         text-align: center;
@@ -54,12 +49,13 @@ $bottomNumber: rgba(250, 94, 134, 255);
 
         .time-card-container {
           .time-card {
-            aspect-ratio: 10/9;
+            aspect-ratio: 11/10;
             font-size: 85px;
             display: flex;
             flex-direction: column;
             position: relative;
-            margin-bottom: 6%;
+            margin-bottom: 7%;
+            user-select: none;
 
             .top, .bottom {
               flex: 1;
@@ -84,8 +80,8 @@ $bottomNumber: rgba(250, 94, 134, 255);
               border-bottom-left-radius: 10px;
               border-bottom-right-radius: 10px;
               align-items: start;
-              background-color: $bottomCard;
-              color: $bottomNumber;
+              background-color: $DarkDesaturatedBlue;
+              color: $SoftRed;
               --mask: radial-gradient(8px at 8px 0,#0000 98%,#000) -8px;
               -webkit-mask: var(--mask);
               mask: var(--mask);
@@ -96,7 +92,7 @@ $bottomNumber: rgba(250, 94, 134, 255);
               content: "";
               border-radius: 20px 20px 8% 8%;
               background-color: $VeryDarkBlueMostlyBlack;
-              height: 106%;
+              height: 107%;
               width: 100%;
             }
 
@@ -112,7 +108,7 @@ $bottomNumber: rgba(250, 94, 134, 255);
 
           .subtitle {
             font-size: 14px;
-            margin-top: 15%;
+            margin-top: 17%;
             color: $GrayishBlue;
             letter-spacing: 7px;
             text-align: center;
@@ -129,5 +125,24 @@ $bottomNumber: rgba(250, 94, 134, 255);
     background-image: url("./assets/pattern-hills.svg");
     background-position: 83% top;
     background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .networks {
+      margin-top: 2.5%;
+      width: 9%;
+      display: flex;
+      justify-content: space-between;
+
+
+      svg:hover {
+        filter: invert(55%) sepia(87%) saturate(2115%) hue-rotate(309deg) brightness(98%) contrast(100%);
+      }
+
+      svg {
+        cursor: pointer;
+      }
+    }
   }
 }

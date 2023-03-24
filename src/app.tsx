@@ -1,6 +1,9 @@
 import './app.scss'
 import React, {useState} from "preact/compat";
 import TimeCard from "./components/TimeCard"
+import {ReactComponent as FaceBook} from "./assets/icon-facebook.svg";
+import {ReactComponent as Pinterest} from "./assets/icon-pinterest.svg";
+import {ReactComponent as Instagram} from "./assets/icon-instagram.svg";
 
 export function App() {
     const subtitles = ['DAYS', 'HOURS', 'MINUTES', 'SECONDS']
@@ -16,7 +19,11 @@ export function App() {
                     </div>
                 </div>
             </div>
-            <div class="pattern-hills"/>
+            <div class="pattern-hills">
+                <div class="networks">
+                    <FaceBook/><Pinterest/><Instagram/>
+                </div>
+            </div>
         </div>
     )
 }
