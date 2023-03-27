@@ -120,15 +120,19 @@ $topNumber: rgba(215, 80, 115, 255);
             }
 
             .top-anim {
-              animation: dropPaperTop 500ms 1;
+              animation: dropPaperTop 4000ms;
             }
 
             .bottom-anim {
-              animation: dropPaperBottom 500ms 1;
-              animation-delay: 500ms;
+              transform: scaleY(0);
+              animation: dropPaperBottom 2000ms;
+              animation-delay: 2000ms;
             }
 
             @keyframes dropPaperTop {
+              50% {
+                transform: scaleY(0);
+              }
               100% {
                 transform: scaleY(0);
               }
@@ -136,6 +140,12 @@ $topNumber: rgba(215, 80, 115, 255);
             @keyframes dropPaperBottom {
               0% {
                 transform: scaleY(0);
+              }
+              50% {
+                transform: scaleY(1);
+              }
+              100% {
+                transform: scaleY(1);
               }
             }
           }
