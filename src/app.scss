@@ -66,6 +66,8 @@ $topNumber: rgba(215, 80, 115, 255);
               justify-content: center;
               align-items: end;
               position: relative;
+              transform-style: preserve-3d;
+              backface-visibility: hidden;
             }
 
             .top, .bottom {
@@ -120,32 +122,37 @@ $topNumber: rgba(215, 80, 115, 255);
             }
 
             .top-anim {
-              animation: dropPaperTop 4000ms;
+              transform: perspective(600px) rotateX(0deg);
+              animation: dropPaperTop 1000ms;
             }
 
             .bottom-anim {
-              transform: scaleY(0);
-              animation: dropPaperBottom 2000ms;
-              animation-delay: 2000ms;
+              transform: perspective(600px) rotateX(90deg);
+              animation: dropPaperBottom 1000ms;
             }
 
             @keyframes dropPaperTop {
-              50% {
-                transform: scaleY(0);
+              0% {
+                transform: perspective(600px) rotateX(0deg);
+                animation-timing-function: ease-in;
+              }
+              45% {
+                transform: perspective(600px) rotateX(-90deg);
               }
               100% {
-                transform: scaleY(0);
+                transform: perspective(600px) rotateX(-90deg);
               }
             }
             @keyframes dropPaperBottom {
-              0% {
-                transform: scaleY(0);
+              45% {
+                transform: perspective(600px) rotateX(90deg);
+                animation-timing-function: ease-out;
               }
-              50% {
-                transform: scaleY(1);
+              80% {
+                transform: perspective(600px) rotateX(0deg);
               }
               100% {
-                transform: scaleY(1);
+                transform: perspective(600px) rotateX(0deg);
               }
             }
           }

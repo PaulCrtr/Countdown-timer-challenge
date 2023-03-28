@@ -28,7 +28,7 @@ export function App() {
                     }
                 }
             }
-        }, 4000);
+        }, 1000);
         return () => clearTimeout(timer);
     }, [time]);
 
