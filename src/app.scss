@@ -101,8 +101,8 @@ $topNumber: rgba(215, 80, 115, 255);
               content: '';
               background-color: $VeryDarkBlueMostlyBlack;;
               position: absolute;
-              width: 7px;
-              height: 7px;
+              width: 3px;
+              height: 3px;
             }
             .top:before {
               left: 0;
@@ -130,22 +130,13 @@ $topNumber: rgba(215, 80, 115, 255);
               width: 100%;
             }
 
-            &:after {
-              content: "";
-              background-color: $VeryDarkBlueMostlyBlack;
-              height: 1px;
-              width: 100%;
-              position: absolute;
-              top: 50%;
-            }
-
             .top-anim {
-              transform: perspective(600px) rotateX(0deg);
+              transform: perspective(850px) rotateX(0deg);
               animation: dropTop 1050ms;
             }
 
             .bottom-anim {
-              transform: perspective(600px) rotateX(90deg);
+              transform: perspective(850px) rotateX(90deg);
               animation: dropBottom 1050ms;
             }
           }
@@ -247,6 +238,10 @@ $topNumber: rgba(215, 80, 115, 255);
   .app .bg-stars .main-container .countdown-timer .timer-card-container .subtitle {
     font-size: 10px;
   }
+  .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card .top::before, .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card .top::after, .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card .bottom::before, .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card .bottom::after {
+    width: 5px;
+    height: 5px;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -272,5 +267,17 @@ $topNumber: rgba(215, 80, 115, 255);
   }
   .app .pattern-hills .networks {
     margin-top: 50px;
+  }
+  .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card .top::before, .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card .top::after, .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card .bottom::before, .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card .bottom::after {
+    width: 7px;
+    height: 7px;
+  }
+  .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card .top {
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+  }
+  .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card .bottom {
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
   }
 }
