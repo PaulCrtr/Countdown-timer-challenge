@@ -9,7 +9,7 @@ $VeryDarkBlueMostlyBlack: hsl(234, 17%, 12%);
 $topCard: rgba(44, 44, 68, 255);
 $topNumber: rgba(215, 80, 115, 255);
 
-.app-background {
+.app {
   height: 100vh;
   background-color: $VeryDarkBlue;
   font-family: "Red Hat Text", sans-serif;
@@ -43,15 +43,14 @@ $topNumber: rgba(215, 80, 115, 255);
         min-width: 330px;
       }
 
-      .timer {
+      .countdown-timer {
         width: 330px;
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
         grid-gap: 4%;
 
-
-        .time-card-container {
-          .time-card {
+        .timer-card-container {
+          .timer-card {
             aspect-ratio: 11/10;
             font-size: 35px;
             display: flex;
@@ -87,9 +86,6 @@ $topNumber: rgba(215, 80, 115, 255);
               border-top-right-radius: 5px;
               background-color: $topCard;
               color: $topNumber;
-              //--mask: radial-gradient(4px at 4px 100%,#0000 98%,#000) -4px;
-              //-webkit-mask: var(--mask);
-              //mask: var(--mask);
             }
 
             .bottom {
@@ -99,9 +95,30 @@ $topNumber: rgba(215, 80, 115, 255);
               border-bottom-right-radius: 5px;
               background-color: $DarkDesaturatedBlue;
               color: $SoftRed;
-              //--mask: radial-gradient(4px at 4px 0,#0000 98%,#000) -4px;
-              //-webkit-mask: var(--mask);
-              //mask: var(--mask);
+            }
+
+            .top:before, .top:after, .bottom:before, .bottom:after {
+              content: '';
+              background-color: $VeryDarkBlueMostlyBlack;;
+              position: absolute;
+              width: 7px;
+              height: 7px;
+            }
+            .top:before {
+              left: 0;
+              border-radius: 0 100% 0 0;
+            }
+            .top:after {
+              right: 0;
+              border-radius: 100% 0 0 0 ;
+            }
+            .bottom:before {
+              left: 0;
+              border-radius: 0 0 100% 0;
+            }
+            .bottom:after {
+              right: 0;
+              border-radius: 0 0 0 100% ;
             }
 
             &:before {
@@ -124,57 +141,12 @@ $topNumber: rgba(215, 80, 115, 255);
 
             .top-anim {
               transform: perspective(600px) rotateX(0deg);
-              animation: dropPaperTop 1050ms;
+              animation: dropTop 1050ms;
             }
 
             .bottom-anim {
               transform: perspective(600px) rotateX(90deg);
-              animation: dropPaperBottom 1050ms;
-            }
-
-            @keyframes dropPaperTop {
-              0% {
-                transform: perspective(900px) rotateX(0deg);
-                animation-timing-function: ease-in;
-              }
-              20% {
-                box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
-              }
-              30% {
-                box-shadow: 0px -10px 20px -20px rgba(0,0,0,0.25);
-              }
-              40% {
-                box-shadow: 0px -15px 15px -20px rgba(0,0,0,0.5);
-              }
-              45% {
-                transform: perspective(900px) rotateX(-90deg);
-                box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
-              }
-              100% {
-                transform: perspective(900px) rotateX(-90deg);
-              }
-            }
-            @keyframes dropPaperBottom {
-              45% {
-                transform: perspective(900px) rotateX(90deg);
-                animation-timing-function: ease-out;
-                box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
-              }
-              50% {
-                box-shadow: 0px 20px 15px -20px rgba(0,0,0,0.5);
-              }
-              60% {
-                box-shadow: 0px 10px 20px -20px rgba(0,0,0,0.25);
-              }
-              70% {
-                box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
-              }
-              80% {
-                transform: perspective(900px) rotateX(0deg);
-              }
-              100% {
-                transform: perspective(900px) rotateX(0deg);
-              }
+              animation: dropBottom 1050ms;
             }
           }
 
@@ -219,50 +191,86 @@ $topNumber: rgba(215, 80, 115, 255);
   }
 }
 
+@keyframes dropTop {
+  0% {
+    transform: perspective(850px) rotateX(0deg);
+    animation-timing-function: ease-in;
+  }
+  20% {
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+  }
+  30% {
+    box-shadow: 0px -10px 20px -20px rgba(0,0,0,0.5);
+  }
+  40% {
+    box-shadow: 0px -15px 10px -20px rgba(0,0,0,1);
+  }
+  50% {
+    transform: perspective(850px) rotateX(-90deg);
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+  }
+  100% {
+    transform: perspective(850px) rotateX(-90deg);
+  }
+}
+
+@keyframes dropBottom {
+  50% {
+    transform: perspective(850px) rotateX(90deg);
+    animation-timing-function: ease-out;
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+  }
+  55% {
+    box-shadow: 0px 20px 15px -20px rgba(0,0,0,1);
+  }
+  60% {
+    box-shadow: 0px 10px 20px -20px rgba(0,0,0,0.5);
+  }
+  70% {
+    box-shadow: 0px 10px 20px -20px rgba(0,0,0,0.5);
+  }
+  90% {
+    transform: perspective(850px) rotateX(0deg);
+  }
+  100% {
+    transform: perspective(850px) rotateX(0deg);
+  }
+}
+
 @media only screen and (min-width: 600px) {
-  .app-background .bg-stars .main-container .timer {
+  .app .bg-stars .main-container .countdown-timer {
     width: 550px;
   }
-  .app-background .bg-stars .main-container .timer .time-card-container .time-card {
+  .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card {
     font-size: 65px;
   }
-  .app-background .bg-stars .main-container .timer .time-card-container .subtitle {
+  .app .bg-stars .main-container .countdown-timer .timer-card-container .subtitle {
     font-size: 10px;
   }
 }
 
 @media only screen and (min-width: 1200px) {
-  .app-background .bg-stars .main-container .timer {
+  .app .bg-stars .main-container .countdown-timer {
     width: 740px;
   }
-  .app-background .bg-stars .main-container .timer .time-card-container .time-card {
+  .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card {
     font-size: 88px;
   }
-  .app-background .bg-stars .main-container .timer .time-card-container .subtitle {
+  .app .bg-stars .main-container .countdown-timer .timer-card-container .subtitle {
     margin-top: 18%;
     font-size: 13px;
     letter-spacing: 7px;
     text-indent: 7px;
   }
-  .app-background .bg-stars .main-container .title {
+  .app .bg-stars .main-container .title {
     font-size: 21px;
     letter-spacing: 9px;
     text-indent: 9px;
   }
-  .app-background .bg-stars .main-container {
+  .app .bg-stars .main-container {
     padding: 35px 40px 35px 40px;
   }
-  .app-background .pattern-hills .networks {
+  .app .pattern-hills .networks {
     margin-top: 50px;
   }
-  //.app-background .bg-stars .main-container .timer .time-card-container .time-card .top {
-  //  --mask: radial-gradient(7px at 7px 100%,#0000 98%,#000) -7px;
-  //  -webkit-mask: var(--mask);
-  //  mask: var(--mask);
-  //}
-  //.app-background .bg-stars .main-container .timer .time-card-container .time-card .bottom {
-  //  --mask: radial-gradient(7px at 7px 0,#0000 98%,#000) -7px;
-  //  -webkit-mask: var(--mask);
-  //  mask: var(--mask);
-  //}
 }

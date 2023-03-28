@@ -1,4 +1,3 @@
-import './TimeCard.scss'
 import React, {useEffect, useRef} from "preact/compat";
 
 type TimeCardProps = {
@@ -11,8 +10,8 @@ export default function TimeCard({number, subtitle}: TimeCardProps) {
     const prevNumber = usePrevious(number)
 
     return (
-        <div class="time-card-container">
-            <div class="time-card">
+        <div class="timer-card-container">
+            <div class="timer-card">
                 <div class="top-container">
                     <div class="top">
                         {formatNumber(number)}

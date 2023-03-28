@@ -1,6 +1,6 @@
 import './app.scss'
 import React, {useState, useEffect} from "preact/compat";
-import TimeCard from "./components/TimeCard"
+import TimeCard from "./TimeCard"
 import {ReactComponent as FaceBook} from "./assets/icon-facebook.svg";
 import {ReactComponent as Pinterest} from "./assets/icon-pinterest.svg";
 import {ReactComponent as Instagram} from "./assets/icon-instagram.svg";
@@ -33,11 +33,11 @@ export function App() {
     }, [time]);
 
     return (
-        <div class="app-background">
+        <div class="app">
             <div class="bg-stars">
                 <div class="main-container">
                     <div class="title">WE’RE LAUNCHING SOON</div>
-                    <div class="timer">
+                    <div class="countdown-timer">
                         {time.map((e, index) => <TimeCard number={e} subtitle={subtitles[index]}/>)}
                     </div>
                 </div>
