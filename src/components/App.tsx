@@ -1,9 +1,10 @@
 import './app.scss'
 import React, {useEffect, useState} from "preact/compat";
 import TimerCard from "./TimerCard"
-import {ReactComponent as FaceBook} from "./assets/icon-facebook.svg";
-import {ReactComponent as Pinterest} from "./assets/icon-pinterest.svg";
-import {ReactComponent as Instagram} from "./assets/icon-instagram.svg";
+import {ReactComponent as FaceBook} from "../assets/icon-facebook.svg";
+import {ReactComponent as Pinterest} from "../assets/icon-pinterest.svg";
+import {ReactComponent as Instagram} from "../assets/icon-instagram.svg";
+import githubMark from "../assets/github-mark.png";
 
 export function App() {
     const subtitles = ['DAYS', 'HOURS', 'MINUTES', 'SECONDS']
@@ -41,9 +42,10 @@ export function App() {
                 </div>
             </div>
             <div class="pattern-hills">
-                <div class="networks">
-                    <FaceBook/><Pinterest/><Instagram/>
-                </div>
+                    <div class="networks"><FaceBook/><Pinterest/><Instagram/></div>
+                    <a class="signature" href="https://github.com/PaulCrtr/Countdown-timer-challenge" target="_blank">
+                        <img src={githubMark} alt="github"/> <span>PaulCrtr</span>
+                    </a>
             </div>
         </div>
     )

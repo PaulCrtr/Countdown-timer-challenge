@@ -19,7 +19,7 @@ $topNumber: rgba(215, 80, 115, 255);
   .bg-stars {
     flex-grow: 1;
     flex-basis: 75%;
-    background-image: url("./assets/bg-stars.svg");
+    background-image: url("src/assets/bg-stars.svg");
     background-position: center bottom;
     background-size: cover;
     display: flex;
@@ -104,21 +104,25 @@ $topNumber: rgba(215, 80, 115, 255);
               width: 3px;
               height: 3px;
             }
+
             .top:before {
               left: 0;
               border-radius: 0 100% 0 0;
             }
+
             .top:after {
               right: 0;
-              border-radius: 100% 0 0 0 ;
+              border-radius: 100% 0 0 0;
             }
+
             .bottom:before {
               left: 0;
               border-radius: 0 0 100% 0;
             }
+
             .bottom:after {
               right: 0;
-              border-radius: 0 0 0 100% ;
+              border-radius: 0 0 0 100%;
             }
 
             &:before {
@@ -157,25 +161,50 @@ $topNumber: rgba(215, 80, 115, 255);
   .pattern-hills {
     flex-grow: 1;
     flex-basis: 28%;
-    background-image: url("./assets/pattern-hills.svg");
+    background-image: url("src/assets/pattern-hills.svg");
     background-position: 83% top;
     background-size: cover;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
 
     .networks {
-      margin-top: 70px;
+      margin-top: 80px;
       width: 140px;
       display: flex;
+      flex-basis: 100%;
       justify-content: space-between;
-
-      svg:hover {
-        filter: invert(55%) sepia(87%) saturate(2115%) hue-rotate(309deg) brightness(98%) contrast(100%);
-      }
+      align-items: center;
 
       svg {
         cursor: pointer;
+
+        &:hover {
+          filter: invert(55%) sepia(87%) saturate(2115%) hue-rotate(309deg) brightness(98%) contrast(100%);
+        }
+      }
+    }
+
+    .signature {
+      justify-self: end;
+      align-self: end;
+      display: flex;
+      margin-bottom: 10px;
+      margin-right: 10px;
+      justify-content: end;
+      align-items: center;
+      color: $GrayishBlue;
+      text-decoration: none;
+
+      img {
+        width: 20px;
+        filter: invert(53%) sepia(29%) saturate(326%) hue-rotate(199deg) brightness(96%) contrast(86%);
+        margin-right: 5px;
+      }
+
+      &:hover {
+        filter: invert(55%) sepia(87%) saturate(2115%) hue-rotate(309deg) brightness(98%) contrast(100%);
       }
     }
   }
@@ -187,17 +216,17 @@ $topNumber: rgba(215, 80, 115, 255);
     animation-timing-function: ease-in;
   }
   20% {
-    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
   }
   30% {
-    box-shadow: 0px -10px 20px -20px rgba(0,0,0,0.5);
+    box-shadow: 0px -10px 20px -20px rgba(0, 0, 0, 0.5);
   }
   40% {
-    box-shadow: 0px -15px 10px -20px rgba(0,0,0,1);
+    box-shadow: 0px -15px 10px -20px rgba(0, 0, 0, 1);
   }
   50% {
     transform: perspective(850px) rotateX(-90deg);
-    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
   }
   100% {
     transform: perspective(850px) rotateX(-90deg);
@@ -208,16 +237,16 @@ $topNumber: rgba(215, 80, 115, 255);
   50% {
     transform: perspective(850px) rotateX(90deg);
     animation-timing-function: ease-out;
-    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
   }
   55% {
-    box-shadow: 0px 20px 15px -20px rgba(0,0,0,1);
+    box-shadow: 0px 20px 15px -20px rgba(0, 0, 0, 1);
   }
   60% {
-    box-shadow: 0px 10px 20px -20px rgba(0,0,0,0.5);
+    box-shadow: 0px 10px 20px -20px rgba(0, 0, 0, 0.5);
   }
   70% {
-    box-shadow: 0px 10px 20px -20px rgba(0,0,0,0.5);
+    box-shadow: 0px 10px 20px -20px rgba(0, 0, 0, 0.5);
   }
   90% {
     transform: perspective(850px) rotateX(0deg);
@@ -268,7 +297,7 @@ $topNumber: rgba(215, 80, 115, 255);
     padding: 35px 40px 35px 40px;
   }
   .app .pattern-hills .networks {
-    margin-top: 50px;
+    margin-top: 65px;
   }
   .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card .top::before,
   .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card .top::after,
