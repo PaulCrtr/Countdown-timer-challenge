@@ -1,13 +1,15 @@
 import React, {useEffect, useRef} from "preact/compat";
 
-type TimeCardProps = {
+type TimerCardProps = {
     number: Number,
     subtitle: String
 }
 
-export default function TimeCard({number, subtitle}: TimeCardProps) {
+export default function TimerCard({number, subtitle}: TimerCardProps) {
 
     const prevNumber = usePrevious(number)
+
+    const triggerAnim = typeof prevNumber !== "undefined" && prevNumber != number
 
     return (
         <div class="timer-card-container">
@@ -16,15 +18,15 @@ export default function TimeCard({number, subtitle}: TimeCardProps) {
                     <div class="top">
                         {formatNumber(number)}
                     </div>
-                    <div key={number} class="top top-anim">
+                    {triggerAnim && <div key={number} class="top top-anim">
                         {formatNumber(prevNumber)}
-                    </div>
+                    </div>}
                 </div>
                 <div class="bottom-container">
-                    <div class="bottom">
+                    {triggerAnim && <div class="bottom">
                         {formatNumber(prevNumber)}
-                    </div>
-                    <div key={number} class="bottom bottom-anim">
+                    </div>}
+                    <div key={number} class={`bottom ${triggerAnim ? 'bottom-anim' : ''}`}>
                         {formatNumber(number)}
                     </div>
                 </div>
@@ -35,7 +37,7 @@ export default function TimeCard({number, subtitle}: TimeCardProps) {
 }
 
 const formatNumber = (number: Number | undefined) => {
-    if (number){
+    if (number) {
         const numberToString = number.toString()
         if (numberToString.length < 2) return "0" + numberToString
         return numberToString;

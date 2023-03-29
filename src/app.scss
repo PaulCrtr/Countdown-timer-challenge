@@ -65,8 +65,6 @@ $topNumber: rgba(215, 80, 115, 255);
               justify-content: center;
               align-items: end;
               position: relative;
-              transform-style: preserve-3d;
-              backface-visibility: hidden;
             }
 
             .top, .bottom {
@@ -86,6 +84,7 @@ $topNumber: rgba(215, 80, 115, 255);
               border-top-right-radius: 5px;
               background-color: $topCard;
               color: $topNumber;
+              transform: perspective(850px);
             }
 
             .bottom {
@@ -95,11 +94,12 @@ $topNumber: rgba(215, 80, 115, 255);
               border-bottom-right-radius: 5px;
               background-color: $DarkDesaturatedBlue;
               color: $SoftRed;
+              transform: perspective(850px);
             }
 
             .top:before, .top:after, .bottom:before, .bottom:after {
               content: '';
-              background-color: $VeryDarkBlueMostlyBlack;;
+              background-color: $VeryDarkBlueMostlyBlack;
               position: absolute;
               width: 3px;
               height: 3px;
@@ -150,7 +150,6 @@ $topNumber: rgba(215, 80, 115, 255);
             text-align: center;
           }
         }
-
       }
     }
   }
@@ -238,7 +237,10 @@ $topNumber: rgba(215, 80, 115, 255);
   .app .bg-stars .main-container .countdown-timer .timer-card-container .subtitle {
     font-size: 10px;
   }
-  .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card .top::before, .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card .top::after, .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card .bottom::before, .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card .bottom::after {
+  .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card .top::before,
+  .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card .top::after,
+  .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card .bottom::before,
+  .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card .bottom::after {
     width: 5px;
     height: 5px;
   }
@@ -268,7 +270,10 @@ $topNumber: rgba(215, 80, 115, 255);
   .app .pattern-hills .networks {
     margin-top: 50px;
   }
-  .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card .top::before, .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card .top::after, .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card .bottom::before, .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card .bottom::after {
+  .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card .top::before,
+  .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card .top::after,
+  .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card .bottom::before,
+  .app .bg-stars .main-container .countdown-timer .timer-card-container .timer-card .bottom::after {
     width: 7px;
     height: 7px;
   }
