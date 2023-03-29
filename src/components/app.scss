@@ -19,7 +19,7 @@ $topNumber: rgba(215, 80, 115, 255);
   .bg-stars {
     flex-grow: 1;
     flex-basis: 75%;
-    background-image: url("src/assets/bg-stars.svg");
+    background-image: url("../assets/bg-stars.svg");
     background-position: center bottom;
     background-size: cover;
     display: flex;
@@ -161,7 +161,7 @@ $topNumber: rgba(215, 80, 115, 255);
   .pattern-hills {
     flex-grow: 1;
     flex-basis: 28%;
-    background-image: url("src/assets/pattern-hills.svg");
+    background-image: url("../assets/pattern-hills.svg");
     background-position: 83% top;
     background-size: cover;
     display: flex;
