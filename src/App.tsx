@@ -7,26 +7,24 @@ import {ReactComponent as Instagram} from "./assets/icon-instagram.svg";
 
 export function App() {
     const subtitles = ['DAYS', 'HOURS', 'MINUTES', 'SECONDS']
-
+    const [isInit, setIsInit] = useState(false)
     const [time, setTime] = useState([8, 23, 55, 2])
 
     useEffect(() => {
+        const [days, hours, minutes, seconds] = time;
+        if (!isInit){
+            setTime([days, hours, minutes, seconds - 1])
+            setIsInit(true)
+        }
         const timer = setTimeout(() => {
-            const [days, hours, minutes, seconds] = time;
             if (seconds > 0) {
                 setTime([days, hours, minutes, seconds - 1]);
-            } else {
-                if (minutes > 0) {
-                    setTime([days, hours, minutes - 1, 59]);
-                } else {
-                    if (hours > 0) {
-                        setTime([days, hours - 1, 59, 59]);
-                    } else {
-                        if (days > 0) {
-                            setTime([days - 1, 23, 59, 59]);
-                        }
-                    }
-                }
+            } else if (minutes > 0) {
+                setTime([days, hours, minutes - 1, 59]);
+            } else if (hours > 0) {
+                setTime([days, hours - 1, 59, 59]);
+            } else if (days > 0) {
+                setTime([days - 1, 23, 59, 59]);
             }
         }, 1000);
         return () => clearTimeout(timer);
